@@ -62,7 +62,12 @@ config_setting(
 
 cc_library(
     name = "rmw_implementation",
-    deps = select({
+    deps = [
+        "@ament_index_cpp",
+        "@rcpputils",
+        "@rcutils",
+        "@rmw",
+    ] + select({
         ":rmw_cyclonedds_cpp": ["@rmw_cyclonedds_cpp"],
         ":rmw_fastrtps_cpp": ["@rmw_fastrtps_cpp"],
         ":rmw_fastrtps_dynamic_cpp": ["@rmw_fastrtps_dynamic_cpp"],

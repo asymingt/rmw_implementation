@@ -24,7 +24,7 @@ package(default_visibility = ["//visibility:public"])
 
 string_flag(
     name = "rmw",
-    build_setting_default = "rmw_cyclonedds_cpp",
+    build_setting_default = "rmw_zenoh_cpp",
 )
 
 # Middleware implementations
@@ -71,7 +71,7 @@ cc_library(
         ":rmw_fastrtps_cpp": ["@rmw_fastrtps_cpp"],
         ":rmw_fastrtps_dynamic_cpp": ["@rmw_fastrtps_dynamic_cpp"],
         ":rmw_zenoh_cpp": ["@rmw_zenoh_cpp"],
-        "//conditions:default": [],
+        "//conditions:default": ["@rmw_zenoh_cpp"],
     }),
 )
 
